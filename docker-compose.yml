@@ -1,11 +1,10 @@
-# https://github.com/localstack/localstack/blob/master/docker-compose.yml
 version: "3.8"
 
 services:
+  # https://github.com/localstack/localstack/blob/master/docker-compose.yml
   localstack:
     # v0.12.16
     image: localstack/localstack@sha256:22e869ce3ef9782ea05fd0cc1ea47ed713a205c5e8a9f7d319afcd9bbadedae0
-    # network_mode: bridge
     ports:
       - "53:53"
       - "53:53/udp"
