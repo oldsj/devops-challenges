@@ -25,6 +25,12 @@ services:
       args: 
         - AWS_CLI_VER=2.2.31
         - TERRAFORM_VER=1.0.5
-    entrypoint: bash
     depends_on: 
       - localstack
+    hostname: docker-challenges
+    environment: 
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=mock_access_key
+      - AWS_SECRET_ACCESS_KEY=mock_secret_key
+    volumes: 
+      - ${PWD}/challenges:/challenges
