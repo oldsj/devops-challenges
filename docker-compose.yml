@@ -20,7 +20,11 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
 
   shell:
-    build: .
+    build:
+      context: .
+      args: 
+        - AWS_CLI_VER=2.2.31
+        - TERRAFORM_VER=1.0.5
     entrypoint: bash
     depends_on: 
       - localstack
