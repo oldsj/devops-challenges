@@ -17,11 +17,6 @@ services:
   #   volumes:
   #     - "${TMPDIR:-/tmp/localstack}:/tmp/localstack"
   #     - "/var/run/docker.sock:/var/run/docker.sock"
-  proxy:
-    # v1.21.1
-    image: nginx@sha256:ce6ca11a3fa7e0e6b44813901e3289212fc2f327ee8b1366176666e8fb470f24
-    volumes: 
-      - ${PWD}/files/nginx.conf:/etc/nginx/conf.d/default.conf
   moto:
     # v2.0.8
     image: motoserver/moto@sha256:f3785700783a3ccf0c57c589ab06cf2ce3dcbf72961295d5d04686f62e6181ba
@@ -34,7 +29,6 @@ services:
         - TERRAFORM_VER=1.0.5
     depends_on: 
       - moto
-      - proxy
     hostname: docker-challenges
     environment: 
       - AWS_DEFAULT_REGION=us-east-1
