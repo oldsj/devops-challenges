@@ -1,22 +1,30 @@
 version: "3.8"
 
 services:
-  # https://github.com/localstack/localstack/blob/master/docker-compose.yml
-  localstack:
-    # v0.12.16
-    image: localstack/localstack@sha256:22e869ce3ef9782ea05fd0cc1ea47ed713a205c5e8a9f7d319afcd9bbadedae0
-    ports:
-      - "53:53"
-      - "53:53/udp"
-      - "443:443"
-      - "4566:4566"
-      - "4571:4571"
-    environment:
-      - DOCKER_HOST=unix:///var/run/docker.sock
-      - HOST_TMP_FOLDER=${TMPDIR}
-    volumes:
-      - "${TMPDIR:-/tmp/localstack}:/tmp/localstack"
-      - "/var/run/docker.sock:/var/run/docker.sock"
+  # # https://github.com/localstack/localstack/blob/master/docker-compose.yml
+  # localstack:
+  #   # v0.12.16
+  #   image: localstack/localstack@sha256:22e869ce3ef9782ea05fd0cc1ea47ed713a205c5e8a9f7d319afcd9bbadedae0
+  #   ports:
+  #     - "53:53"
+  #     - "53:53/udp"
+  #     - "443:443"
+  #     - "4566:4566"
+  #     - "4571:4571"
+  #   environment:
+  #     - DOCKER_HOST=unix:///var/run/docker.sock
+  #     - HOST_TMP_FOLDER=${TMPDIR}
+  #   volumes:
+  #     - "${TMPDIR:-/tmp/localstack}:/tmp/localstack"
+  #     - "/var/run/docker.sock:/var/run/docker.sock"
+  proxy:
+    # v1.21.1
+    image: nginx@sha256:ce6ca11a3fa7e0e6b44813901e3289212fc2f327ee8b1366176666e8fb470f24
+    volumes: 
+      - ${PWD}/files/nginx.conf:/etc/nginx/conf.d/default.conf
+  moto:
+    # v2.0.8
+    image: motoserver/moto@sha256:f3785700783a3ccf0c57c589ab06cf2ce3dcbf72961295d5d04686f62e6181ba
 
   shell:
     build:
@@ -25,7 +33,8 @@ services:
         - AWS_CLI_VER=2.2.31
         - TERRAFORM_VER=1.0.5
     depends_on: 
-      - localstack
+      - moto
+      - proxy
     hostname: docker-challenges
     environment: 
       - AWS_DEFAULT_REGION=us-east-1
