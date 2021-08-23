@@ -9,7 +9,7 @@ setup() {
 }
 
 @test "vpc cidr is configured" {
-    run aws ec2 describe-vpcs --output json #| jq  -e '.Vpcs[]  | select(.CidrBlock == "172.31.0.0/17z")'
+    run aws ec2 describe-vpcs --output json
     assert_output --partial '172.16.0.0/16'
 }
 
