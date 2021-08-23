@@ -21,7 +21,8 @@ RUN git clone https://github.com/bats-core/bats-core.git && \
 COPY scripts/install* .
 ARG AWS_CLI_VER
 ENV AWS_CLI_VER=${AWS_CLI_VER}
-RUN ./install-aws.sh
+RUN ./install-aws.sh && \
+    echo '/usr/local/bin/aws --endpoint-url http://moto:5000 "$@"' > /opt/aws && chmod +x /opt/aws
 ARG TERRAFORM_VER
 ENV TERRAFORM_VER=${TERRAFORM_VER}
 COPY files/hashi.asc /tmp/hashi.asc 
@@ -35,8 +36,8 @@ USER me
 RUN \
     terraform -install-autocomplete && \
     echo "complete -C '/usr/local/bin/aws_completer' aws" >> $HOME/.bashrc && \
-    echo "alias aws='aws --endpoint-url http://moto:5000'" >> $HOME/.bash_aliases && \
-    echo "alias ll='ls -l'" >> $HOME/.bash_aliases
+    echo "alias ll='ls -l'" >> $HOME/.bash_aliases && \
+    echo "PATH=/opt:$PATH" >> $HOME/.bashrc
 
 VOLUME [ "/challenges" ]
 WORKDIR /challenges
