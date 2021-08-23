@@ -1,4 +1,5 @@
 function setup_file() {
+    terraform init
     terraform apply -input=false -auto-approve -lock=false    
 }
 
