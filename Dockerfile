@@ -3,7 +3,6 @@ FROM debian:bullseye-slim@sha256:2a6fd917bbc6b8c0c4f5d05b2f831b27003dc24df486e3e
 RUN apt-get update && apt-get install -y \
     curl \
     git \
-    golang \
     gnupg \
     groff \
     jq \
@@ -12,6 +11,9 @@ RUN apt-get update && apt-get install -y \
     sudo \
     unzip
 WORKDIR /tmp
+# bats testing framework
+RUN git clone https://github.com/sstephenson/bats.git && \
+    cd bats && ./install.sh /usr/local
 COPY scripts/install* .
 ARG AWS_CLI_VER
 ENV AWS_CLI_VER=${AWS_CLI_VER}
