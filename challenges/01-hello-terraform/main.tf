@@ -1,7 +1,11 @@
-# resource "aws_vpc" "my_vpc" {
-#   cidr_block = "172.16.0.0/16"
+resource "aws_vpc" "my_vpc" {
+  cidr_block = "172.16.0.0/16"
 
-#   tags = {
-#     Name = "tf-example"
-#   }
-# }
+  tags = {
+    Name = "tf-example"
+  }
+}
+
+output vpc_id {
+  value       = aws_vpc.my_vpc.id
+}

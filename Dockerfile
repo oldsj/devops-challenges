@@ -3,7 +3,9 @@ FROM debian:bullseye-slim@sha256:2a6fd917bbc6b8c0c4f5d05b2f831b27003dc24df486e3e
 RUN apt-get update && apt-get install -y \
     curl \
     git \
+    golang \
     gnupg \
+    groff \
     jq \
     less \
     openssh-client \
@@ -36,5 +38,3 @@ USER root
 COPY scripts/docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
 CMD [ "bash" ]
-
-RUN apt install -y vim dnsutils iputils-ping net-tools
