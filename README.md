@@ -38,7 +38,7 @@ Write infrastructure code and run tests with until they pass.
 
 ### 01-hello-terraform
 
-Using terraform, configure an AWS VPC with a CIDR of 172.31.0.0/16.
+Using terraform, configure an AWS VPC with a CIDR of 172.16.0.0/16.
 
 ```
 cd 01-hello-terraform

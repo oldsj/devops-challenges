@@ -12,12 +12,20 @@ RUN apt-get update && apt-get install -y \
     unzip
 WORKDIR /tmp
 # bats testing framework
-ARG BATS_VER
-COPY test/test_helper/ /test
+ARG BATS_VER \
+    BATS_SUPPORT_VER \
+    BATS_ASSERT_VER
 RUN git clone https://github.com/bats-core/bats-core.git && \
     cd bats-core && \
     git checkout ${BATS_VER} && \
-    ./install.sh /usr/local
+    ./install.sh /usr/local && \
+    cd ../ && \
+    git clone https://github.com/bats-core/bats-support.git /test/bats-support && \
+    cd /test/bats-support && \
+    git checkout ${BATS_SUPPORT_VER} && \
+    git clone https://github.com/bats-core/bats-assert.git /test/bats-assert && \
+    cd /test/bats-assert && \
+    git checkout ${BATS_ASSERT_VER}  
 COPY scripts/install* .
 ARG AWS_CLI_VER
 ENV AWS_CLI_VER=${AWS_CLI_VER}
