@@ -31,7 +31,7 @@ docker compose run shell
 
 Each challenge will have a `test.bats` file that will test your code with [bats](https://github.com/bats-core/bats-core).
 
-Write infrastructure code and run tests with until they pass.
+Write infrastructure code and run tests until they pass.
 
 ## Challenges
 
