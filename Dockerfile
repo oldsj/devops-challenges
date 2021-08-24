@@ -35,7 +35,7 @@ ARG TERRAFORM_VER
 ENV TERRAFORM_VER=${TERRAFORM_VER}
 COPY files/hashi.asc /tmp/hashi.asc 
 RUN ./install-terraform.sh
-
+COPY scripts/docker-entrypoint.sh /docker-entrypoint.sh
 RUN useradd -ms /bin/bash -G sudo me && \
     echo "%sudo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
@@ -49,7 +49,5 @@ RUN \
 
 VOLUME [ "/challenges" ]
 WORKDIR /challenges
-USER root
-COPY scripts/docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
 CMD [ "bash" ]

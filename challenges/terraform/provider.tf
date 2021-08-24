@@ -1,3 +1,4 @@
+# DO NOT MODIFY
 terraform {
   required_providers {
     aws = {

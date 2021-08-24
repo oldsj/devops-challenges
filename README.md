@@ -6,7 +6,6 @@ A project based approach to learning devops skills.
   - [Setup](#setup)
   - [Environment](#environment)
   - [Challenges](#challenges)
-    - [01-hello-terraform](#01-hello-terraform)
 
 ## Setup
 
@@ -36,11 +35,4 @@ Write infrastructure code and run tests with until they pass.
 
 ## Challenges
 
-### 01-hello-terraform
-
-Using terraform, configure an AWS VPC with a CIDR of 172.16.0.0/16.
-
-```
-cd 01-hello-terraform
-bats test.bats
-```
+Check out the challenges in the `challenges/` directory. Each challenge has its own README.md with instructions and resources.
