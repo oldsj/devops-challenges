@@ -6,6 +6,7 @@ answers: clean
 	cd /tmp && git clone --depth 1 https://github.com/oldsj/devops-challenges-answers.git
 	# copy the challenge answers into the challenge dir
 	cp -r /tmp/devops-challenges-answers/challenges/. /tmp/challenges/
+	chmod a+wx -r /tmp/challenges
 
 .PHONY: test
 test: answers
