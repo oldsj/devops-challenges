@@ -26,7 +26,7 @@ RUN git clone https://github.com/bats-core/bats-core.git && \
     git clone https://github.com/bats-core/bats-assert.git /test/bats-assert && \
     cd /test/bats-assert && \
     git checkout ${BATS_ASSERT_VER}  
-COPY scripts/install* .
+COPY scripts/install* ./
 ARG AWS_CLI_VER
 ENV AWS_CLI_VER=${AWS_CLI_VER}
 RUN ./install-aws.sh && \
