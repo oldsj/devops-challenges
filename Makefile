@@ -9,8 +9,8 @@ answers: clean
 
 .PHONY: test
 test: answers
-	docker compose build
-	docker compose run -v /tmp/challenges:/tmp/challenges shell 'bash /test/test.sh'
+	docker-compose build
+	docker-compose run -v /tmp/challenges:/tmp/challenges shell 'bash /test/test.sh'
 
 .PHONY: clean
 clean:
