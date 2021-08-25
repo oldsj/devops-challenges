@@ -8,6 +8,7 @@ function setup_file() {
 setup() {
     load '/test/bats-support/load.bash'
     load '/test/bats-assert/load.bash'
+    load '/test/load.bash'
 }
 
 @test "VPC is configured with a CIDR block of 172.16.0.0/16" {

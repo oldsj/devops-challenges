@@ -8,6 +8,7 @@ function setup_file() {
 setup() {
     load '/test/bats-support/load.bash'
     load '/test/bats-assert/load.bash'
+    load '/test/load.bash'
 }
 
 @test "EC2 instance exists with name tag 'hello-terraform'" {

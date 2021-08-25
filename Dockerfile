@@ -36,6 +36,8 @@ ENV TERRAFORM_VER=${TERRAFORM_VER}
 COPY files/hashi.asc /tmp/hashi.asc 
 RUN ./install-terraform.sh
 COPY scripts/docker-entrypoint.sh /docker-entrypoint.sh
+COPY scripts/test.sh /test/test.sh
+COPY scripts/load.bash /test/load.bash
 RUN useradd -ms /bin/bash -G sudo me && \
     echo "%sudo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
