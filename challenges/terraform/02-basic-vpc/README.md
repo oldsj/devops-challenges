@@ -11,7 +11,8 @@
 - VPC Networking
 https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html
 
+## Test your  work
+
 ```
-cd terraform/02-basic-vpc
 bats test.bats
 ```
