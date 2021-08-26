@@ -22,7 +22,8 @@ https://www.terraform.io/docs/language/values/outputs.html
 
 **NOTE:** Using a data lookup to find an AMI will not work in this environment. You can use any AMI id.
 
+## Test your  work
+
 ```
-cd terraform/01-hello-terraform
 bats test.bats
 ```
