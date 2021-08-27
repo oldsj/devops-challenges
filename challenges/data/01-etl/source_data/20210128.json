@@ -1,3 +1,28 @@
 {
-    ""
+    "teams" : [
+        {
+            "name": "frontend",
+            "members": [
+                "bill",
+                "james",
+                "kyle"
+            ]
+        },
+        {
+            "name": "infrastructure",
+            "members": [
+                "dave",
+                "ryan",
+                "keith"
+            ]
+        },
+        {
+            "name": "backend",
+            "members": [
+                "kenny",
+                "steve",
+                "melvin"
+            ]
+        }
+    ]
 }

@@ -1,10 +1,6 @@
 version: "3.8"
 
 services:
-  moto:
-    # v2.0.8
-    image: motoserver/moto@sha256:f3785700783a3ccf0c57c589ab06cf2ce3dcbf72961295d5d04686f62e6181ba
-
   shell:
     build:
       context: .
@@ -16,6 +12,7 @@ services:
         - BATS_ASSERT_VER=672ad18
     depends_on: 
       - moto
+      - db
     hostname: docker-challenges
     environment: 
       - AWS_DEFAULT_REGION=us-east-1
@@ -23,3 +20,24 @@ services:
       - AWS_SECRET_ACCESS_KEY=mock_secret_key
     volumes: 
       - ${PWD}/challenges:/challenges
+
+  moto:
+    # v2.0.8
+    image: motoserver/moto@sha256:f3785700783a3ccf0c57c589ab06cf2ce3dcbf72961295d5d04686f62e6181ba
+
+  db:
+    image: postgres:13.4-alpine3.14@sha256:c72d0da357ccbe11f769b3b4319ec3281014447d1b6dd9f636cf9dfffe9ed258
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "employee_analytics"  
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./scripts/seed-db.sql:/docker-entrypoint-initdb.d/seed-db.sql
+
+configs:
+  db:
+    file: ./scripts/seed-db.sql
+
+volumes:
+  pgdata:

@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y \
     jq \
     less \
     openssh-client \
+    # postgres v13
+    postgresql-client \
     sudo \
     unzip
 WORKDIR /tmp
