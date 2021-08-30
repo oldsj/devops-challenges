@@ -35,3 +35,14 @@ Check out the challenges in the `challenges/` directory. Each challenge has its 
 Each challenge will have a `test.bats` file that will test your solution with [bats](https://github.com/bats-core/bats-core) and provide feedback on if you met the challenge requirements or not.
 
 Write infrastructure code and run tests until they pass.
+
+### :pencil: Prerequisite Knowledge
+
+Each challenge will have its own difficulty level and will describe prerequisite knowledge for that specific challenge in more detail in the challenge's README.md.
+
+All challanges assume a basic level familiarity with the following tools
+
+- git
+- docker
+- *nix shell
+- navigating a code editor or IDE
