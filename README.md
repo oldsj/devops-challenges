@@ -28,6 +28,8 @@ docker compose build
 docker compose run shell
 ```
 
+For more information on the local AWS environment, see the diagram at [docs/local-aws-environment.png](docs/local-aws-environment.png)
+
 ## :white_check_mark: Challenges
 
 Check out the challenges in the `challenges/` directory. Each challenge has its own README.md with instructions and resources.
@@ -38,7 +40,7 @@ Write infrastructure code and run tests until they pass.
 
 ### :pencil: Prerequisite Knowledge
 
-Each challenge will have its own difficulty level and will describe prerequisite knowledge for that specific challenge in more detail in the challenge's README.md.
+Each challenge will have its own difficulty level and will have prerequisite knowledge for that specific challenge described in more detail in the challenge's README.md.
 
 All challanges assume a basic level familiarity with the following tools
 
@@ -46,3 +48,5 @@ All challanges assume a basic level familiarity with the following tools
 - docker
 - *nix shell
 - navigating a code editor or IDE
+
+
