@@ -1,9 +1,11 @@
 version: "3.8"
 
 services:
-  moto:
+  moto: &moto-config
     # v2.0.8
     image: motoserver/moto@sha256:f3785700783a3ccf0c57c589ab06cf2ce3dcbf72961295d5d04686f62e6181ba
+  moto-test:
+    <<: *moto-config
 
   shell:
     build:
@@ -16,6 +18,7 @@ services:
         - BATS_ASSERT_VER=672ad18
     depends_on: 
       - moto
+      - moto-test
     hostname: docker-challenges
     environment: 
       - AWS_DEFAULT_REGION=us-east-1
