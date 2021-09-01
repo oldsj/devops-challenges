@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     jq \
     less \
     openssh-client \
+    parallel \
     sudo \
     unzip
 WORKDIR /tmp
@@ -37,7 +38,7 @@ COPY files/hashi.asc /tmp/hashi.asc
 RUN ./install-terraform.sh
 COPY scripts/docker-entrypoint.sh /docker-entrypoint.sh
 COPY scripts/test.sh /test/test.sh
-COPY scripts/load.bash /test/load.bash
+COPY scripts/*.bash /test/
 RUN useradd -ms /bin/bash -G sudo me && \
     echo "%sudo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 

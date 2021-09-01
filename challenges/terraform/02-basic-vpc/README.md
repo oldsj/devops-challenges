@@ -1,18 +1,32 @@
 # 02-basic-vpc
 
+Difficulty: *Beginner*
+
 1. Using terraform, configure an AWS VPC with a CIDR of 172.16.0.0/16.
 2. Output the VPC ID as a terraform output named `vpc_id`
 
-## Resources
+## :pencil: Prerequisite Knowledge
 
-### VPC 
+**beginner**
+- terraform
+- networking
 
-- https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
+## :books: Resources
+
+### VPC
+
+- VPC Basics
+  https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
 - VPC Networking
-https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html
+  https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html
 
-## Test your  work
+### terraform
+
+- terraform outputs
+  https://www.terraform.io/docs/language/values/outputs.html
+
+## :white_check_mark: Test your work
 
 ```
-bats test.bats
+./test.sh
 ```
