@@ -7,9 +7,9 @@ Difficulty: *Beginner*
 ## :pencil: Prerequisite Knowledge
 
 **beginner**
-- what is terraform
-- what is aws cloud
-- what is a virtual machine
+- terraform
+- AWS cloud
+- virtual machines
 
 ## :books: Resources
 
