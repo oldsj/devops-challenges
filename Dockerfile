@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim@sha256:2a6fd917bbc6b8c0c4f5d05b2f831b27003dc24df486e3ec8b3f563fe9c06503
+FROM --platform=linux/amd64 debian:bullseye-slim
 
 RUN apt-get update && apt-get install -y \
     curl \
