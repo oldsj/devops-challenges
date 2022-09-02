@@ -17,5 +17,8 @@ jobs:
               with:
                   ssh-private-key: ${{ secrets.ANSWERS_DEPLOY_KEY }}
 
-            - name: Run test suite
+            - name: Build
+              run: make build
+
+            - name: Test
               run: make test
