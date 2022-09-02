@@ -22,7 +22,7 @@ Difficulty: *Beginner*
 
 ### terraform
 
-- The `docker compose run shell` environment is already configured with AWS credentials and has `terraform` and `aws` installed. A `provider.tf` is already configured for the local AWS environment and does not need modification. **NOTE:** The `provider.tf` in this environment is not configured like you would normally see in a production environment, it's specifically set up for the local AWS environment.
+- The `make shell` environment is already configured with AWS credentials and has `terraform` and `aws` installed. A `provider.tf` is already configured for the local AWS environment and does not need modification. **NOTE:** The `provider.tf` in this environment is not configured like you would normally see in a production environment, it's specifically set up for the local AWS environment.
 - Get started with terraform
   https://learn.hashicorp.com/tutorials/terraform/aws-build?in=terraform/aws-get-started
 

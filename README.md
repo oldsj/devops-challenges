@@ -24,8 +24,7 @@ The challenge environment is configured with Docker compose and provides a local
 Get a shell in the environment with
 
 ```
-docker compose build
-docker compose run shell
+make shell
 ```
 
 For more information on the local AWS environment, see the diagram at [docs/local-aws-environment.png](docs/local-aws-environment.png)
